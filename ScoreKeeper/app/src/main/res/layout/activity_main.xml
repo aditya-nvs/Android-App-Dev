@@ -6,22 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:gravity="center"
+    android:layout_margin="5dp"
     android:orientation="vertical">
 
     <Button
+        android:layout_weight="1"
         android:onClick="decrementScore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="#5CC9F5"
-        android:padding="30dp"
         android:text="-"
+        android:padding="10sp"
         android:textColor="#FFF"
         android:textSize="40sp"
         android:textStyle="bold" />
 
     <TextView
+        android:layout_weight="8"
         android:id="@+id/result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,13 +34,14 @@
         android:textStyle="bold" />
 
     <Button
+        android:layout_weight="1"
         android:onClick="incrementScore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="#5CC9F5"
-        android:padding="30dp"
         android:text="+"
+        android:padding="10sp"
         android:textColor="#FFF"
         android:textSize="40sp"
         android:textStyle="bold" />
