@@ -1,5 +1,6 @@
 package com.adityanvs.tallycounter;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -18,6 +19,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //Connecting score view i.e. result as id on activity_main.xml to MainActivity.java through sc object
         sc = findViewById(R.id.result);
+
+        if (savedInstanceState != null){
+            count = savedInstanceState.getInt("TALLY");
+            sc.setText(String.valueOf(count));
+        }
     }
 
     public void decrementScore(View view) {
@@ -30,5 +36,11 @@ public class MainActivity extends AppCompatActivity {
         count++;
         sc.setText(""+count);
         Toast.makeText(this, "Incremented", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("TALLY", count);
     }
 }
