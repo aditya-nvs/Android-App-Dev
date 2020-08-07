@@ -1,5 +1,6 @@
 package com.adityanvs.scorekeeper2p;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -19,6 +20,13 @@ public class MainActivity extends AppCompatActivity {
         p2 = findViewById(R.id.scoreP2);
         counter1 = 0;
         counter2 = 0;
+
+        if (savedInstanceState != null){
+            counter1 = savedInstanceState.getInt("s1");
+            counter2 = savedInstanceState.getInt("s2");
+            p1.setText(String.valueOf(counter1));
+            p2.setText(String.valueOf(counter2));
+        }
     }
 
     public void decrementScore1(View view) {
@@ -40,5 +48,12 @@ public class MainActivity extends AppCompatActivity {
     public void incrementScore2(View view) {
         counter2++;
         p2.setText(String.valueOf(counter2));
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("s1", counter1);
+        outState.putInt("s2", counter2);
     }
 }
